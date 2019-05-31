@@ -8,6 +8,7 @@ var theta2 = 2 * Math.PI / 3;
 var av1 = 0;
 var av2 = 0;
 var l1 = 125;
+var timestep = .2
 var l2 = 125;
 var aL1 = l1 * 1;
 var aL2 = l2 * 1;
@@ -58,18 +59,25 @@ var move = function() {
     window.cancelAnimationFrame(requestID);
 
     //After solving the equations for angular acceleration >>+-5349802349-85-230585823058-102357120-9571245712-05172389051DONT FORGET TO INCLUDE DERIVATION IN README
-    let g = .981;
+    let g = 9.81;
     let aa1 = -1 * g * (2 * m1 + m2) * Math.sin(theta1) - m2 * g * Math.sin(theta1 - 2 * theta2) - 2 * Math.sin(theta1 - theta2)*m2*(av2 * av2 * l2 + av1 * av1 * l1 * Math.cos(theta1 - theta2))
     aa1 /= l1 * (2 * m1 + m2 - m2 * Math.cos(2*theta1 - 2*theta2))
 
     let aa2 = 2 * Math.sin(theta1-theta2) * (av1 * av1 * l1 * (m1 + m2) + g * (m1 + m2) * Math.cos(theta1) + av2 * av2 * l2 * m2 * Math.cos(theta1-theta2))
     aa2 /= l2 * (2 * m1 + m2 - m2 * Math.cos(2 * theta1 - 2 * theta2))
 
+//Taken from https://gamedev.stackexchange.com/questions/15708/how-can-i-implement-gravity/41917#41917
 
-    av1 += (aa1);
-    av2 += (aa2);
-    theta1 += av1;
-    theta2 += av2;
+    theta1 += timestep * (av1 + timestep * aa1 /2)
+    theta2 += timestep * (av2 + timestep * aa2 /2)
+    av1 += timestep * aa1
+    av2 += timestep * aa2
+    var na1 =  -1 * g * (2 * m1 + m2) * Math.sin(theta1) - m2 * g * Math.sin(theta1 - 2 * theta2) - 2 * Math.sin(theta1 - theta2)*m2*(av2 * av2 * l2 + av1 * av1 * l1 * Math.cos(theta1 - theta2))
+    na1 /= l1 * (2 * m1 + m2 - m2 * Math.cos(2*theta1 - 2*theta2))
+    var na2 =  2 * Math.sin(theta1-theta2) * (av1 * av1 * l1 * (m1 + m2) + g * (m1 + m2) * Math.cos(theta1) + av2 * av2 * l2 * m2 * Math.cos(theta1-theta2))
+    na2 /= l2 * (2 * m1 + m2 - m2 * Math.cos(2 * theta1 - 2 * theta2))
+    av1 += timestep * (na1 - aa1) / 2;
+    av2 += timestep * (na2 - aa2) / 2;
 
     group.setAttribute("transform", `rotate(${(theta1 * 180 / Math.PI)} 200 100) translate(200 100)`);
     let cx = 200 + aL1 * Math.cos(theta1 + Math.PI/2);
@@ -94,7 +102,7 @@ var move = function() {
 
 
 
-
+    updateChart()
     requestID = window.requestAnimationFrame(move);
 
 }
