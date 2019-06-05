@@ -7,8 +7,8 @@ var chart2 = new CanvasJS.Chart("anglechart", {
 		title: "𝛳2"
 	},
     data: [{
-        markerSize: 1,
-        type: "spline",
+        markerSize: 5,
+        type: "scatter",
         color: "red",
         dataPoints: anglepoints
     }]

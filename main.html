@@ -2,13 +2,18 @@
 <html>
 <meta charset="utf-8">
 <body>
-    <svg id="vimage" height="500" width="500" style="border: 1px solid;">
+    <svg id="vimage" height="1000" width="1000" style="border: 1px solid;">
     </svg>
     <div id = "energychart" style = "height: 300px; width: 50%;"> </div>
     <div id = "anglechart" style = "height: 300px; width: 50%;"> </div>
+    <button id = "pause"> Pause </button>
+    <button id = "play"> Play </button>
+    Length1: <input type="range" min="1" max="5" value="1" class="slider" id="length1"><br>
+    Length2: <input type="range" min="1" max="5" value="1" class="slider" id="length2"><br>
 </body>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="chart.js"> </script>
 <script src="anglechart.js"> </script>
 <script src="main.js"> </script>
+<script src="buttons.js"> </script>
 </html>

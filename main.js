@@ -4,8 +4,8 @@ var img = document.getElementById("vimage");
 var pivot = [200,100];
 var m1 = 10;
 var m2 = 10;
-var theta1 = Math.PI / 4;
-var theta2 = 2 * Math.PI / 3;
+var theta1 = Math.PI / 2;
+var theta2 = Math.PI / 2;
 var av1 = 0;
 var av2 = 0;
 var l1 = 1;
@@ -60,7 +60,17 @@ img.appendChild(group);
 
 var counter = 0;
 var requestID;
+var lastSign
 var move = function() {
+    theta1 = ((theta1)% (Math.PI*2) + Math.PI * 2) % (Math.PI * 2)
+    theta2 = ((theta2)% (Math.PI*2) + Math.PI * 2) % (Math.PI * 2)
+    if (theta1 > Math.PI) {
+        theta1 -= Math.PI * 2
+    }
+    if (theta2 > Math.PI) {
+        theta2 -= Math.PI * 2
+    }
+
     window.cancelAnimationFrame(requestID);
 
     //After solving the equations for angular acceleration >>+-5349802349-85-230585823058-102357120-9571245712-05172389051DONT FORGET TO INCLUDE DERIVATION IN README
@@ -121,11 +131,20 @@ var move = function() {
     if (counter % 5 == 0) {
         updateChart(ke + u, ke, u)
         updateChart2(theta1,theta2)
+
     }
     counter += 1;
     time += timestep
     requestID = window.requestAnimationFrame(move);
-
+    if(lastSign == 1 && av2 < 0 || lastSign == -1 && av2 > 0){
+        //updateChart2(theta1,theta2)
+    }
+    if(av2 > 0){
+        lastSign = 1
+    }
+    else{
+        lastSign = -1
+    }
 }
 
 move();
