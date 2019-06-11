@@ -134,6 +134,7 @@ var move = function() {
         }
         else{
             updateChart2(theta1,theta2)
+	    updateChart(ke + u, ke, u)
         }
 
     }

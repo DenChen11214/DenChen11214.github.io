@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-<style>
-#l1v {
-    display:inline-block
-}
-#l2v {
-    display:inline-block
-}
-#m1v {
-    display:inline-block
-}
-#m2v {
-    display:inline-block
-}
-#gv {
-    display:inline-block
-}
-</style>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <body>
-    <svg id="vimage" height="1000" width="1000" style="border: 1px solid;">
+    <svg id="vimage" height="500" width="500" style="border: 1px solid;">
     </svg>
     <br>
-    <button id = "pause"> Pause </button>
-    <button id = "play"> Play </button><br>
-    Length1:<div id = "l1v">1</div><br> <input type="range" min="100" max="300" value="100" class="slider" id="length1"><br>
-    Length2:<div id = "l2v">1</div><br> <input type="range" min="100" max="300" value="100" class="slider" id="length2"><br>
-    Mass1:<div id = "m1v">10</div><br> <input type="range" min="5" max="50" value="10" class="slider" id="mass1"><br>
-    Mass2:<div id = "m2v">10</div><br> <input type="range" min="5" max="50" value="10" class="slider" id="mass2"><br>
-    Gravity:<div id = "gv">10</div><br>  <input type="range" min="1" max="30" value="10" class="slider" id="gravity"><br>
+    <button class="btn" id = "pause"> <img id="wot" width ="25" height = "25" src="pause.svg"></button><br>
+    Length1:<div id = "l1v" class="textthing">1</div><br> <input type="range" min="100" max="300" value="100" class="slider" id="length1"><br>
+    Length2:<div id = "l2v" class="textthing">1</div><br> <input type="range" min="100" max="300" value="100" class="slider" id="length2"><br>
+    Mass1:<div id = "m1v" class="textthing">10</div><br> <input type="range" min="5" max="50" value="10" class="slider" id="mass1"><br>
+    Mass2:<div id = "m2v" class="textthing">10</div><br> <input type="range" min="5" max="50" value="10" class="slider" id="mass2"><br>
+    Gravity:<div id = "gv" class="textthing">10</div><br>  <input type="range" min="1" max="30" value="10" class="slider" id="gravity"><br>
     <button id = "energy"> Energy vs Time</button>
     <button id = "angle"> Angle1 vs Angle2</button>
     <div id="charts">

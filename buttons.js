@@ -1,5 +1,5 @@
 var pause = document.getElementById("pause");
-var play = document.getElementById("play");
+var pauseImg = document.getElementById("wot");
 var length1 = document.getElementById("length1")
 var length2 = document.getElementById("length2")
 var mass1 = document.getElementById("mass1")
@@ -27,13 +27,15 @@ energyChart.addEventListener("click",function(){
         charts.removeChild(angleC)
 }})
 pause.addEventListener("click", function() {
-    window.cancelAnimationFrame(requestID);
-    paused = true
-})
-
-play.addEventListener("click", function() {
-    move();
-    pause = false;
+    if (!(paused)) {
+	window.cancelAnimationFrame(requestID);
+	paused = true
+	pauseImg.src = "play-button.svg"
+    } else {
+	move();
+	paused = false;
+	pauseImg.src = "pause.svg"
+    }
 })
 
 length1.addEventListener("input",function(e){
