@@ -1,5 +1,8 @@
 var anglepoints = [];
 var chart2 = new CanvasJS.Chart("anglechart", {
+    title :{
+		text: "𝛳2 vs 𝛳1"
+	},
     axisX: {
 		title:"𝛳1",
 	},
@@ -23,5 +26,5 @@ var updateChart2 = function(t1,t2) {
 }
 
 var round = function(n) {
-    return Math.round(n * 100) / 100;
+    return Math.round(n * 10000) / 10000;
 }

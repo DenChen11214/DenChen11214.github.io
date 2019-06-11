@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
+<style>
+#l1v {
+    display:inline-block
+}
+#l2v {
+    display:inline-block
+}
+#m1v {
+    display:inline-block
+}
+#m2v {
+    display:inline-block
+}
+#gv {
+    display:inline-block
+}
+</style>
 <body>
     <svg id="vimage" height="1000" width="1000" style="border: 1px solid;">
     </svg>
-    <div id = "energychart" style = "height: 300px; width: 50%;"> </div>
-    <div id = "anglechart" style = "height: 300px; width: 50%;"> </div>
+    <br>
     <button id = "pause"> Pause </button>
-    <button id = "play"> Play </button>
-    Length1: <input type="range" min="1" max="5" value="1" class="slider" id="length1"><br>
-    Length2: <input type="range" min="1" max="5" value="1" class="slider" id="length2"><br>
+    <button id = "play"> Play </button><br>
+    Length1:<div id = "l1v">1</div><br> <input type="range" min="100" max="300" value="100" class="slider" id="length1"><br>
+    Length2:<div id = "l2v">1</div><br> <input type="range" min="100" max="300" value="100" class="slider" id="length2"><br>
+    Mass1:<div id = "m1v">10</div><br> <input type="range" min="5" max="50" value="10" class="slider" id="mass1"><br>
+    Mass2:<div id = "m2v">10</div><br> <input type="range" min="5" max="50" value="10" class="slider" id="mass2"><br>
+    Gravity:<div id = "gv">10</div><br>  <input type="range" min="1" max="30" value="10" class="slider" id="gravity"><br>
+    <button id = "energy"> Energy vs Time</button>
+    <button id = "angle"> Angle1 vs Angle2</button>
+    <div id="charts">
+        <div id = "energychart" style = "height: 300px; width: 50%;"> </div>
+        <div id = "anglechart" style = "height: 300px; width: 50%;"> </div>
+    </div>
 </body>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="chart.js"> </script>
 <script src="anglechart.js"> </script>
-<script src="main.js"> </script>
 <script src="buttons.js"> </script>
+<script src="main.js"> </script>
+<script src="select.js"></script>
 </html>

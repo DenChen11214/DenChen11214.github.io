@@ -14,6 +14,7 @@ var timestepPerFrame = 1;
 var l2 = 1;
 var aL1 = l1 * 100;
 var aL2 = l2 * 100;
+var g = 9.81
 
 var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
 var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -74,7 +75,6 @@ var move = function() {
     window.cancelAnimationFrame(requestID);
 
     //After solving the equations for angular acceleration >>+-5349802349-85-230585823058-102357120-9571245712-05172389051DONT FORGET TO INCLUDE DERIVATION IN README
-    let g = 9.81;
 
     for (var i = 0; i < timestepPerFrame; i++) {
         let aa1 = -1 * g * (2 * m1 + m2) * Math.sin(theta1) - m2 * g * Math.sin(theta1 - 2 * theta2) - 2 * Math.sin(theta1 - theta2)*m2*(av2 * av2 * l2 + av1 * av1 * l1 * Math.cos(theta1 - theta2))
@@ -129,8 +129,12 @@ var move = function() {
     u = u1+u2
 
     if (counter % 5 == 0) {
-        updateChart(ke + u, ke, u)
-        updateChart2(theta1,theta2)
+        if(!showAngle){
+            updateChart(ke + u, ke, u)
+        }
+        else{
+            updateChart2(theta1,theta2)
+        }
 
     }
     counter += 1;
