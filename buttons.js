@@ -80,9 +80,11 @@ gravity.addEventListener("input",function(e){
 arrow.addEventListener("input",function(e){
     if(arrow.checked){
         vimage.appendChild(varrow);
+        vimage.appendChild(varrow2);
     }
     else{
         vimage.removeChild(varrow);
+        vimage.removeChild(varrow2);
     }
 })
 

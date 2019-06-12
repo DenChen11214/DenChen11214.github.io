@@ -79,6 +79,33 @@ head2.setAttribute("x2", 0 + 20);
 head2.setAttribute("y2", aL2 - 20);
 head2.setAttribute("stroke","black");
 
+var varrow2 = document.createElementNS("http://www.w3.org/2000/svg", "g");
+var vline2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+vline2.setAttribute("x1", 0);
+vline2.setAttribute("y1", 0);
+vline2.setAttribute("x2", 0);
+vline2.setAttribute("y2", aL1);
+vline2.setAttribute("stroke","black");
+
+var head12 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+head12.setAttribute("x1", 0);
+head12.setAttribute("y1", aL1);
+head12.setAttribute("x2", 0 - 20);
+head12.setAttribute("y2", aL1 - 20);
+head12.setAttribute("stroke","black");
+
+
+var head22 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+head22.setAttribute("x1", 0);
+head22.setAttribute("y1", aL1);
+head22.setAttribute("x2", 0 + 20);
+head22.setAttribute("y2", aL1 - 20);
+head22.setAttribute("stroke","black");
+
+varrow2.appendChild(vline2);
+varrow2.appendChild(head12);
+varrow2.appendChild(head22);
+
 varrow.appendChild(vline);
 varrow.appendChild(head1);
 varrow.appendChild(head2);
@@ -89,7 +116,8 @@ var pathGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
 img.appendChild(pathGroup);
 img.appendChild(group2);
 img.appendChild(group);
-img.appendChild(varrow)
+img.appendChild(varrow);
+img.appendChild(varrow2);
 
 var counter = 0;
 var requestID;
@@ -152,6 +180,10 @@ var move = function() {
         varrow.setAttribute("transform", `rotate(${(theta2 * 180 / Math.PI + 90)} ${currentX} ${currentY})
                                           translate(${currentX} ${currentY})
                                           scale(${v2/7})`);
+        varrow2.setAttribute("transform", `rotate(${(theta1 * 180 / Math.PI + 90)} ${cx} ${cy})
+                                          translate(${cx} ${cy})
+                                          scale(${v1/7})`);
+
 
 
     }
