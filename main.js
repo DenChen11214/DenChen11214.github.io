@@ -1,4 +1,7 @@
 var img = document.getElementById("vimage");
+var content = document.getElementById("content");
+// img.setAttribute("height",content.height)
+// img.setAttribute("width",content.width)
 
 //GLOBALS
 var pivot = [200,100];
@@ -53,11 +56,40 @@ c2.setAttribute("fill","#dab6c4");
 group2.appendChild(line2);
 group2.appendChild(c2);
 
+var varrow = document.createElementNS("http://www.w3.org/2000/svg", "g");
+var vline = document.createElementNS("http://www.w3.org/2000/svg", "line");
+vline.setAttribute("x1", 0);
+vline.setAttribute("y1", 0);
+vline.setAttribute("x2", 0);
+vline.setAttribute("y2", aL2);
+vline.setAttribute("stroke","black");
+
+var head1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+head1.setAttribute("x1", 0);
+head1.setAttribute("y1", aL2);
+head1.setAttribute("x2", 0 - 20);
+head1.setAttribute("y2", aL2 - 20);
+head1.setAttribute("stroke","black");
+
+
+var head2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+head2.setAttribute("x1", 0);
+head2.setAttribute("y1", aL2);
+head2.setAttribute("x2", 0 + 20);
+head2.setAttribute("y2", aL2 - 20);
+head2.setAttribute("stroke","black");
+
+varrow.appendChild(vline);
+varrow.appendChild(head1);
+varrow.appendChild(head2);
+
+
 var pathGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
 
 img.appendChild(pathGroup);
 img.appendChild(group2);
 img.appendChild(group);
+img.appendChild(varrow)
 
 var counter = 0;
 var requestID;
@@ -113,6 +145,14 @@ var move = function() {
         if (pathGroup.children.length > 100) {
             pathGroup.removeChild(pathGroup.children[0])
         }
+        v1 = av1 * l1;
+        v2 = av2 * l2;
+
+
+        varrow.setAttribute("transform", `rotate(${(theta2 * 180 / Math.PI + 90)} ${currentX} ${currentY})
+                                          translate(${currentX} ${currentY})
+                                          scale(${v2/7})`);
+
 
     }
 

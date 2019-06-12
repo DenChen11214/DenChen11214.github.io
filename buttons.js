@@ -9,6 +9,8 @@ var angleChart = document.getElementById("angle")
 var energyChart = document.getElementById("energy");
 var angleC = document.getElementById("anglechart")
 var energyC = document.getElementById("energychart")
+var arrow = document.getElementById("showArrow")
+arrow.checked = true;
 var showAngle = false
 var paused = false;
 var charts = document.getElementById("charts");
@@ -75,6 +77,14 @@ gravity.addEventListener("input",function(e){
     resetVars()
 })
 
+arrow.addEventListener("input",function(e){
+    if(arrow.checked){
+        vimage.appendChild(varrow);
+    }
+    else{
+        vimage.removeChild(varrow);
+    }
+})
 
 var resetVars = function() {
     av1 = 0

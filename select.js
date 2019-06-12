@@ -26,6 +26,14 @@ img.addEventListener("mousemove",function(e){
 
         currentX = cx + aL2 * Math.cos(theta2 + Math.PI/2);
         currentY = cy + aL2 * Math.sin(theta2 + Math.PI/2);
+        v1 = av1 * l1;
+        v2 = av2 * l2;
+
+        vline.setAttribute("x1", currentX)
+        vline.setAttribute("y1", currentY)
+        vline.setAttribute("x2", currentX)
+        vline.setAttribute("y2", currentY + v2 * 10)
+        vline.setAttribute("transform", `rotate(${(theta2 * 180 / Math.PI + 90)} ${currentX} ${currentY})`);
     }
 })
 
@@ -44,6 +52,14 @@ img.addEventListener("mousemove",function(e){
 
         currentX = x + aL2 * Math.cos(theta2 + Math.PI/2);
         currentY = y + aL2 * Math.sin(theta2 + Math.PI/2);
+        v1 = av1 * l1;
+        v2 = av2 * l2;
+
+        vline.setAttribute("x1", currentX)
+        vline.setAttribute("y1", currentY)
+        vline.setAttribute("x2", currentX)
+        vline.setAttribute("y2", currentY + v2 * 10)
+        vline.setAttribute("transform", `rotate(${(theta2 * 180 / Math.PI + 90)} ${currentX} ${currentY})`);
     }
 })
 window.addEventListener("mouseup", function(e){
@@ -52,5 +68,5 @@ window.addEventListener("mouseup", function(e){
     }
     mousedown1 = false;
     mousedown2 = false;
-    
+
 })
