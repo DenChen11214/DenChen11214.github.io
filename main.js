@@ -30,8 +30,8 @@ var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 c.setAttribute("cx",0);
 c.setAttribute("cy",aL1);
 c.setAttribute("r",20);
-c.setAttribute("fill","blue");
-c.setAttribute("stroke","black");
+c.setAttribute("fill","#9cd08f");
+//c.setAttribute("stroke","black");
 group.appendChild(line);
 group.appendChild(c);
 
@@ -48,8 +48,8 @@ var c2 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 c2.setAttribute("cx",0);
 c2.setAttribute("cy",aL2);
 c2.setAttribute("r",20);
-c2.setAttribute("fill","blue");
-c2.setAttribute("stroke","black");
+c2.setAttribute("fill","#dab6c4");
+//c2.setAttribute("stroke","black");
 group2.appendChild(line2);
 group2.appendChild(c2);
 

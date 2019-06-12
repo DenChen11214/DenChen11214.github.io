@@ -11,9 +11,12 @@ group2.addEventListener("mousedown",function(e){
     mousedown2 = true;
 })
 img.addEventListener("mousemove",function(e){
+    let rect = img.getBoundingClientRect();
+    let mx = e.clientX - rect.left;
+    let my = e.clientY - rect.top;
     if (mousedown1) {
-        theta1 = Math.atan(-1 * (pivot[0]-e.clientX)/(pivot[1]-e.clientY))
-	if (pivot[1] - e.clientY >= 0) {
+        theta1 = Math.atan(-1 * (pivot[0]-mx)/(pivot[1]-my))
+	if (pivot[1] - my >= 0) {
 	    theta1 += Math.PI
 	}
         group.setAttribute("transform", `rotate(${(theta1 * 180 / Math.PI)} 200 100) translate(200 100)`);
@@ -27,11 +30,14 @@ img.addEventListener("mousemove",function(e){
 })
 
 img.addEventListener("mousemove",function(e){
+    let rect = img.getBoundingClientRect();
+    let mx = e.clientX - rect.left;
+    let my = e.clientY - rect.top;
     x = pivot[0] + aL1 * Math.cos(theta1 + Math.PI/2);
     y = pivot[1] + aL1 * Math.sin(theta1 + Math.PI/2);
     if (mousedown2) {
-        theta2 = Math.atan(-1 * (x-e.clientX)/(y-e.clientY))
-	if (y - e.clientY >= 0) {
+        theta2 = Math.atan(-1 * (x-mx)/(y-my))
+	if (y - my >= 0) {
 	    theta2 += Math.PI
 	}
         group2.setAttribute("transform", `rotate(${(theta2 * 180 / Math.PI)} ${x} ${y}) translate(${x} ${y})`);
