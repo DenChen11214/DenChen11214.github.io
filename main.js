@@ -18,7 +18,7 @@ var l2 = 1;
 var aL1 = l1 * 100;
 var aL2 = l2 * 100;
 var g = 9.81
-
+var showGhost = false;
 var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
 var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
 var prevX = undefined;
@@ -33,7 +33,7 @@ var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 c.setAttribute("cx",0);
 c.setAttribute("cy",aL1);
 c.setAttribute("r",20);
-c.setAttribute("fill","#9cd08f");
+c.setAttribute("fill","#dab6c4");
 //c.setAttribute("stroke","black");
 group.appendChild(line);
 group.appendChild(c);
@@ -221,6 +221,9 @@ var move = function() {
     }
     else{
         lastSign = -1
+    }
+    if (showGhost == true) {
+        gmove();
     }
 }
 

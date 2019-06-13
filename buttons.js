@@ -10,6 +10,8 @@ var energyChart = document.getElementById("energy");
 var angleC = document.getElementById("anglechart")
 var energyC = document.getElementById("energychart")
 var arrow = document.getElementById("showArrow")
+var showPend = document.getElementById("showG")
+showPend.checked = true;
 arrow.checked = true;
 var showAngle = false
 var paused = false;
@@ -85,6 +87,24 @@ arrow.addEventListener("input",function(e){
     else{
         vimage.removeChild(varrow);
         vimage.removeChild(varrow2);
+    }
+})
+showPend.addEventListener("input",function(e){
+    if(showPend.checked){
+        showGhost = true
+        gav1 = av1
+        gav2 = av2
+        img.appendChild(pathggroup);
+        img.appendChild(ggroup2);
+        img.appendChild(ggroup);
+        gtheta1 = theta1 + .05;
+        gtheta2 = theta2 + .05;
+    }
+    else{
+        showGhost = false
+        img.removeChild(pathggroup);
+        img.removeChild(ggroup2);
+        img.removeChild(ggroup);
     }
 })
 
