@@ -1,4 +1,5 @@
 # chaotic_pendulum
+[LINK TO OUR VIDEO](https://youtu.be/o7352PDuVNc)
 
 The simulation shows a double pendulum and how its trajectory is highly dependent on its initial positions. We have an option for users to view how two pendulums will end up very different, even with only small initial differences.
 
