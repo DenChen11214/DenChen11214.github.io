@@ -34,6 +34,8 @@ c.setAttribute("cx",0);
 c.setAttribute("cy",aL1);
 c.setAttribute("r",20);
 c.setAttribute("fill","#dab6c4");
+c.setAttribute("fill-opacity",0.8)
+
 //c.setAttribute("stroke","black");
 group.appendChild(line);
 group.appendChild(c);
@@ -52,6 +54,8 @@ c2.setAttribute("cx",0);
 c2.setAttribute("cy",aL2);
 c2.setAttribute("r",20);
 c2.setAttribute("fill","#dab6c4");
+c2.setAttribute("fill-opacity",0.8)
+
 //c2.setAttribute("stroke","black");
 group2.appendChild(line2);
 group2.appendChild(c2);
@@ -143,7 +147,7 @@ var move = function() {
         let aa2 = 2 * Math.sin(theta1-theta2) * (av1 * av1 * l1 * (m1 + m2) + g * (m1 + m2) * Math.cos(theta1) + av2 * av2 * l2 * m2 * Math.cos(theta1-theta2))
         aa2 /= l2 * (2 * m1 + m2 - m2 * Math.cos(2 * theta1 - 2 * theta2))
 
-        //Taken from https://gamedev.stackexchange.com/questions/15708/how-can-i-implement-gravity/41917#41917
+        //Integration taken from https://gamedev.stackexchange.com/questions/15708/how-can-i-implement-gravity/41917#41917
 
         theta1 += timestep * (av1 + timestep * aa1 /2)
         theta2 += timestep * (av2 + timestep * aa2 /2)
@@ -213,9 +217,6 @@ var move = function() {
     counter += 1;
     time += timestep
     requestID = window.requestAnimationFrame(move);
-    if(lastSign == 1 && av2 < 0 || lastSign == -1 && av2 > 0){
-        //updateChart2(theta1,theta2)
-    }
     if(av2 > 0){
         lastSign = 1
     }

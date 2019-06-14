@@ -11,6 +11,7 @@ var angleC = document.getElementById("anglechart")
 var energyC = document.getElementById("energychart")
 var arrow = document.getElementById("showArrow")
 var showPend = document.getElementById("showG")
+var randomize = document.getElementById("randomize")
 showPend.checked = true;
 arrow.checked = true;
 var showAngle = false
@@ -49,6 +50,8 @@ length1.addEventListener("input",function(e){
     aL1 = l1 * 100
     line.setAttribute("y2", aL1);
     c.setAttribute("cy", aL1);
+    gc.setAttribute("cy", aL1);
+    gline.setAttribute("y2",aL1);
     resetVars()
 })
 length2.addEventListener("input",function(e){
@@ -57,7 +60,9 @@ length2.addEventListener("input",function(e){
     l2 = length2.value / 100
     aL2 = l2 * 100
     c2.setAttribute("cy", aL2);
+    gc2.setAttribute("cy", aL2);
     line2.setAttribute("y2", aL2);
+    gline2.setAttribute("y2",aL2);
     resetVars()
 })
 mass1.addEventListener("input",function(e){
@@ -107,8 +112,26 @@ showPend.addEventListener("input",function(e){
         img.removeChild(ggroup);
     }
 })
-
+randomize.addEventListener("click",function(e){
+    window.cancelAnimationFrame(requestID);
+    theta1 = Math.random() * Math.PI * 2
+    theta2 = Math.random() * Math.PI * 2
+    resetVars();
+    av1 = Math.random()
+    av2 = Math.random()
+    gav1 = av1;
+    gav2 = av2;
+    move();
+})
 var resetVars = function() {
     av1 = 0
     av2 = 0
+    gav2 = 0
+    gav1 = 0
+    gtheta1 = theta1 + 0.05
+    gtheta2 = theta2 + 0.05
+    ggroup.setAttribute("transform", `rotate(${(gtheta1 * 180 / Math.PI)} 200 100) translate(200 100)`);
+    let cx = pivot[0] + aL1 * Math.cos(gtheta1 + Math.PI/2);
+    let cy = pivot[1] + aL1 * Math.sin(gtheta1 + Math.PI/2);
+    ggroup2.setAttribute("transform", `rotate(${(gtheta2 * 180 / Math.PI)} ${cx} ${cy}) translate(${cx} ${cy})`);
 }

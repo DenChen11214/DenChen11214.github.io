@@ -22,6 +22,7 @@ gc.setAttribute("cx",0);
 gc.setAttribute("cy",aL1);
 gc.setAttribute("r",20);
 gc.setAttribute("fill","#9cd08f");
+gc.setAttribute("fill-opacity",0.8)
 //c.setAttribute("stroke","black");
 ggroup.appendChild(gline);
 ggroup.appendChild(gc);
@@ -40,6 +41,7 @@ gc2.setAttribute("cx",0);
 gc2.setAttribute("cy",aL2);
 gc2.setAttribute("r",20);
 gc2.setAttribute("fill","#9cd08f");
+gc2.setAttribute("fill-opacity",0.8)
 //gc2.setAttribute("stroke","black");
 ggroup2.appendChild(gline2);
 ggroup2.appendChild(gc2);
@@ -47,9 +49,9 @@ ggroup2.appendChild(gc2);
 
 var pathggroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
 
-img.appendChild(pathggroup);
-img.appendChild(ggroup2);
-img.appendChild(ggroup);
+img.prepend(pathggroup);
+img.prepend(ggroup2);
+img.prepend(ggroup);
 
 
 var gmove = function() {
