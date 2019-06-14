@@ -86,7 +86,7 @@ var gmove = function() {
         gav1 += timestep * (na1 - aa1) / 2;
         gav2 += timestep * (na2 - aa2) / 2;
     }
-    ggroup.setAttribute("transform", `rotate(${(gtheta1 * 180 / Math.PI)} 200 100) translate(200 100)`);
+    ggroup.setAttribute("transform", `rotate(${(gtheta1 * 180 / Math.PI)} ${pivot[0]} ${pivot[1]} ) translate(${pivot[0]} ${pivot[1]} )`);
     let cx = pivot[0] + aL1 * Math.cos(gtheta1 + Math.PI/2);
     let cy = pivot[1] + aL1 * Math.sin(gtheta1 + Math.PI/2);
     ggroup2.setAttribute("transform", `rotate(${(gtheta2 * 180 / Math.PI)} ${cx} ${cy}) translate(${cx} ${cy})`);

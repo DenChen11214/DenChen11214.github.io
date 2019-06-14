@@ -19,7 +19,7 @@ img.addEventListener("mousemove",function(e){
         if (pivot[1] - my >= 0) {
             theta1 += Math.PI
         }
-        group.setAttribute("transform", `rotate(${(theta1 * 180 / Math.PI)} 200 100) translate(200 100)`);
+        group.setAttribute("transform", `rotate(${(theta1 * 180 / Math.PI)} ${pivot[0]} ${pivot[1]} ) translate(${pivot[0]} ${pivot[1]} )`);
         let cx = pivot[0] + aL1 * Math.cos(theta1 + Math.PI/2);
         let cy = pivot[1] + aL1 * Math.sin(theta1 + Math.PI/2);
         group2.setAttribute("transform", `rotate(${(theta2 * 180 / Math.PI)} ${cx} ${cy}) translate(${cx} ${cy})`);

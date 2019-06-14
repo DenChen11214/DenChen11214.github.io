@@ -66,7 +66,7 @@ length2.addEventListener("input",function(e){
     resetVars()
 })
 mass1.addEventListener("input",function(e){
-    m1 = mass1.value
+    m1 = mass1.value * 1
     var m1v = document.getElementById("m1v")
     m1v.innerHTML = mass1.value
     resetVars()
@@ -74,13 +74,13 @@ mass1.addEventListener("input",function(e){
 mass2.addEventListener("input",function(e){
     var m2v = document.getElementById("m2v")
     m2v.innerHTML = mass2.value
-    m2 = mass2.value
+    m2 = mass2.value * 1
     resetVars()
 })
 gravity.addEventListener("input",function(e){
     var gv = document.getElementById("gv")
     gv.innerHTML = gravity.value
-    g = gravity.value
+    g = gravity.value * 1
     resetVars()
 })
 
@@ -130,7 +130,7 @@ var resetVars = function() {
     gav1 = 0
     gtheta1 = theta1 + 0.05
     gtheta2 = theta2 + 0.05
-    ggroup.setAttribute("transform", `rotate(${(gtheta1 * 180 / Math.PI)} 200 100) translate(200 100)`);
+    ggroup.setAttribute("transform", `rotate(${(gtheta1 * 180 / Math.PI)} ${pivot[0]} ${pivot[1]} ) translate(${pivot[0]} ${pivot[1]} )`);
     let cx = pivot[0] + aL1 * Math.cos(gtheta1 + Math.PI/2);
     let cy = pivot[1] + aL1 * Math.sin(gtheta1 + Math.PI/2);
     ggroup2.setAttribute("transform", `rotate(${(gtheta2 * 180 / Math.PI)} ${cx} ${cy}) translate(${cx} ${cy})`);

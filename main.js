@@ -4,7 +4,7 @@ var content = document.getElementById("content");
 // img.setAttribute("width",content.width)
 
 //GLOBALS
-var pivot = [200,100];
+var pivot = [img.getAttribute("width") / 2, 50];
 var m1 = 10;
 var m2 = 10;
 var theta1 = Math.PI / 2;
@@ -160,7 +160,7 @@ var move = function() {
         av1 += timestep * (na1 - aa1) / 2;
         av2 += timestep * (na2 - aa2) / 2;
     }
-    group.setAttribute("transform", `rotate(${(theta1 * 180 / Math.PI)} 200 100) translate(200 100)`);
+    group.setAttribute("transform", `rotate(${(theta1 * 180 / Math.PI)} ${pivot[0]} ${pivot[1]} ) translate(${pivot[0]} ${pivot[1]} )`);
     let cx = pivot[0] + aL1 * Math.cos(theta1 + Math.PI/2);
     let cy = pivot[1] + aL1 * Math.sin(theta1 + Math.PI/2);
     group2.setAttribute("transform", `rotate(${(theta2 * 180 / Math.PI)} ${cx} ${cy}) translate(${cx} ${cy})`);
