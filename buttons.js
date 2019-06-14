@@ -12,9 +12,9 @@ var energyC = document.getElementById("energychart")
 var arrow = document.getElementById("showArrow")
 var showPend = document.getElementById("showG")
 var randomize = document.getElementById("randomize")
-showPend.checked = true;
+showPend.checked = false;
 arrow.checked = true;
-var showAngle = false
+var showAngle = false;
 var paused = false;
 var charts = document.getElementById("charts");
 charts.removeChild(angleC);
@@ -99,9 +99,9 @@ showPend.addEventListener("input",function(e){
         showGhost = true
         gav1 = av1
         gav2 = av2
-        img.appendChild(pathggroup);
-        img.appendChild(ggroup2);
-        img.appendChild(ggroup);
+        img.prepend(pathggroup);
+        img.prepend(ggroup2);
+        img.prepend(ggroup);
         gtheta1 = theta1 + .05;
         gtheta2 = theta2 + .05;
     }

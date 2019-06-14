@@ -6,7 +6,7 @@ var gtheta2 = theta2 + .01;
 var gav1 = 0;
 var gav2 = 0;
 
-showGhost = true;
+showGhost = false;
 var ggroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
 var gline = document.createElementNS("http://www.w3.org/2000/svg", "line");
 var prevX = undefined;
@@ -48,10 +48,6 @@ ggroup2.appendChild(gc2);
 
 
 var pathggroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
-
-img.prepend(pathggroup);
-img.prepend(ggroup2);
-img.prepend(ggroup);
 
 
 var gmove = function() {
